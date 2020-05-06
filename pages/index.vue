@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-   demo - {{ author }}
+   等待完善
   </div>
 </template>
 
