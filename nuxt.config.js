@@ -24,10 +24,14 @@ module.exports = {
   */
   css: [
   ],
+  styleResources: {
+    scsss: './assets/style/base.scss'
+  },
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    './plugins/minxin.js'
   ],
   /*
   ** Nuxt.js dev-modules
