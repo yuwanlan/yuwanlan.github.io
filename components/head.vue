@@ -1,14 +1,14 @@
 <template>
-  <div class="header">
+  <div class="head">
     <div class="container">
-      my_blog
+      
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'header',
+  name: 'head',
   data() {
     return {
 
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header {
+.head {
 
 }
 </style>

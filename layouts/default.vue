@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Header />
+    <!-- <Head /> -->
     <nuxt />
   </div>
 </template>
 
 <script>
-import Header from '../components/header'
+import Head from '../components/head'
 export default {
   name: 'default',
   components: {
-    Header
+    Head
   },
   data() {
     return {

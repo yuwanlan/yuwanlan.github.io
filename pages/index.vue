@@ -1,6 +1,7 @@
 <template>
   <div class="container">
    等待完善
+   <a href="./blogs/1">blog</a>
   </div>
 </template>
 
