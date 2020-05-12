@@ -2,6 +2,7 @@
   <div class="container">
     <button @click="getMd">获取</button>
     <button @click="getList">获取列表数据</button>
+    <div v-html="markdown"></div>
   </div>
 </template>
 
@@ -10,7 +11,8 @@ export default {
   name: 'index',
   data() {
     return {
-      list: []
+      list: [],
+      markdown: ''
     }
   },
   methods: {
@@ -18,6 +20,7 @@ export default {
       let id = this.list[0];
       this.$axios.get(`/get-md/${id}`).then(res => {
         console.log(res, '==res')
+        this.markdown = res.data;
       })
     },
     getList() {

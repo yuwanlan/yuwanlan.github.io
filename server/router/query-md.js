@@ -1,19 +1,21 @@
 let Router = require('koa-router');
 let fs = require('fs');
+let marked = require('marked');
 
 let allMdfiles = []
 
-let readDir = function(path) {
+let readDir = function(path, options = null) {
   return new Promise((res, rej) => {
-    fs.readdir(__dirname + '/' + path, (err, files) => {
+    fs.readdir(__dirname + '/' + path, options, (err, files) => {
       if(err) rej(err);
       res(files)
     })
   })
 }
-let readFile = function(path) {
+let readFile = function(path, options = null) {
   return new Promise((res, rej) => {
-    fs.readFile(__dirname + '/' + path, (err, data) => {
+    console.log(__dirname + '/' + path, '==filer-path')
+    fs.readFile(__dirname + '/' + path, options, (err, data) => {
       if(err) rej(err);
       res(data)
     })
@@ -30,7 +32,6 @@ router.get('/list', async (ctx, next) => {
   await readDir(dirPath).then(res => {
     allMdfiles = res
   })
-  console.log(allMdfiles, '==allMdfiles')
   ctx.body = {
     "module": {
       list: allMdfiles
@@ -41,16 +42,14 @@ router.get('/list', async (ctx, next) => {
 })
 
 router.get('/:id', async (ctx, next) => {
-  let data;
-  let path = '../../markdown'
-  await readFile(path).then(res => [
-    console.log(res, '==默认格式'),
-    data = String(res)
+  let markdownData;
+  let path = `../../markdown/${ctx.params.id}`
+  await readFile(path, 'utf8').then(res => [
+    markdownData = res
   ]).catch(err => {
     console.log(err)
   })
-  console.log(data, '==data')
-  ctx.body = data;
+  ctx.body = marked(markdownData);
 })
 
 module.exports = router
