@@ -1,13 +1,34 @@
 <template>
   <div class="container">
-   等待完善
-   <a href="./blogs/1">blog</a>
+    <button @click="getMd">获取</button>
+    <button @click="getList">获取列表数据</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'index'
+  name: 'index',
+  data() {
+    return {
+      list: []
+    }
+  },
+  methods: {
+    getMd() {
+      let id = this.list[0];
+      this.$axios.get(`/get-md/${id}`).then(res => {
+        console.log(res, '==res')
+      })
+    },
+    getList() {
+      this.$axios.get('/get-md/list').then(res => {
+        this.list = res.data.module.list
+      })
+    }
+  },
+  mounted() {
+    // this.getMd();
+  }
 }
 </script>
 

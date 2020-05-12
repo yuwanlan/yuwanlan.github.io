@@ -2,6 +2,8 @@ const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
+const getMd = require('./router/query-md');
+
 const app = new Koa()
 
 // Import and Set Nuxt.js options
@@ -23,6 +25,8 @@ async function start () {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+
+  app.use(getMd.routes())
 
   app.use((ctx) => {
     ctx.status = 200
