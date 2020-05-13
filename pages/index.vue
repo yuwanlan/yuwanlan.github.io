@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <button @click="getMd">获取</button>
+    <!-- <button @click="getMd">获取</button> -->
     <button @click="getList">获取列表数据</button>
-    <div v-html="markdown"></div>
+    <p v-for="(item, index) in list" :key="index" @click="handleDetail(item)">{{ item.title }}</p>
   </div>
 </template>
 
@@ -27,10 +27,13 @@ export default {
       this.$axios.get('/get-md/list').then(res => {
         this.list = res.data.module.list
       })
+    },
+    handleDetail(item) {
+      this.$router.push(`./blogs/${item.id}`)
     }
   },
   mounted() {
-    // this.getMd();
+    this.getList();
   }
 }
 </script>
@@ -39,9 +42,5 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 </style>

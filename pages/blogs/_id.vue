@@ -1,16 +1,15 @@
 <template>
   <div class="blog-detail">
-
+    <h1>详情内容</h1>
+    <div class="markdown-box"></div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'blog-detail',
-  mounted() {
-    axios.get('../../markdown/demo.md').then(res => {
-      console.log(res, '==res')
-    })
+  middleware: 'stats',
+  computed: {
   }
 }
 </script>
