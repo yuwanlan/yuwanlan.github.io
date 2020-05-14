@@ -46,13 +46,16 @@ let router = new Router({
 });
 
 router.get('/list', async (ctx, next) => {
+  console.log('get-list-start')
   if(ctx.url !== '/get-md/list') next()
   let dirPath = "../../markdown";
 
   let fileList;
+  console.log('read-dir-start')
   await readDir(dirPath).then(res => {
     fileList = res
   })
+  console.log('read-dir-end')
 
   let allList = fileList.map(fileName => {
     let path = `../../markdown/${fileName}`
@@ -66,6 +69,7 @@ router.get('/list', async (ctx, next) => {
   }).catch(err => {
     throw Error('遍历所有失败' + err);
   })
+  console.log('read-file-end')
 
   ctx.body = {
     "module": {
