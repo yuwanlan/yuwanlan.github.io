@@ -46,30 +46,20 @@ let router = new Router({
 });
 
 router.get('/list', async (ctx, next) => {
-  console.log('get-list-start')
   if(ctx.url !== '/get-md/list') next()
   let dirPath = "../../markdown";
 
-  let fileList;
-  console.log('read-dir-start')
-  await readDir(dirPath).then(res => {
-    fileList = res
-  })
-  console.log('read-dir-end')
+  let fileList = await readDir(dirPath)
 
   let allList = fileList.map(fileName => {
     let path = `../../markdown/${fileName}`
     return readFile(path, 'utf8')
   })
 
-  await Promise.all(allList).then(contentList => {
-    allMdfiles = contentList.map(content => {
-      return fm(content).attributes
-    })
-  }).catch(err => {
-    throw Error('遍历所有失败' + err);
+  let contentList = await Promise.all(allList);
+  allMdfiles = contentList.map(content => {
+    return fm(content).attributes
   })
-  console.log('read-file-end')
 
   ctx.body = {
     "module": {
@@ -83,12 +73,7 @@ router.get('/list', async (ctx, next) => {
 router.get('/:id', async (ctx, next) => {
   let markdownData;
   let path = `../../markdown/${ctx.params.id}.md`
-  await readFile(path, 'utf8').then(res => [
-    markdownData = res
-
-  ]).catch(err => {
-    console.log(err)
-  })
+  markdownData = await readFile(path, 'utf8')
   ctx.body = markdownData;
 })
 
