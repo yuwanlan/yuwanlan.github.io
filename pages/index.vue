@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <p v-for="(item, index) in list" :key="index" @click="handleDetail(item)">{{ item.title }}</p>
+    <template v-for="(item, index) in list">
+      <a :href="`/blogs/${item.id}`" :key="index">{{ item.title }}</a>
+    </template>
   </div>
 </template>
 
@@ -26,16 +28,11 @@ export default {
   },
   methods: {
     handleDetail(item) {
-      console.log(item)
       this.$router.push(`/blogs/${item.id}`)
     }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-}
+<style lang="scss" scoped>
 </style>
