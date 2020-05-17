@@ -25,7 +25,7 @@ module.exports = {
   css: [
   ],
   styleResources: {
-    scsss: './assets/style/base.scss'
+    scss: './assets/style/base.scss'
   },
   /*
   ** Plugins to load before mounting the App
@@ -42,7 +42,8 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Build configuration

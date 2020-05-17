@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <!-- <button @click="getMd">获取</button> -->
-    <!-- <button @click="getList">获取列表数据</button> -->
     <p v-for="(item, index) in list" :key="index" @click="handleDetail(item)">{{ item.title }}</p>
   </div>
 </template>
@@ -9,37 +7,28 @@
 <script>
 export default {
   name: 'index',
+  head() {
+    return {
+      title: `one price`,
+      meta: [
+        { hid: 'header-component-Keywords', name: 'keywords', content: `nuxt, 博客` },
+        { hid: 'header-component-Description', name: 'description', content: `余挽澜的nuxt博客` }
+      ]
+    }
+  },
   async asyncData(context) {
     let { $axios } = context;
-    let list;
-    await $axios.get('/get-md/list').then(res => {
-      list = res.data.module.list
-    })
+    let result = await $axios.get('/get-md/list')
+    let list = ((result.data || {}).module || {}).list || []
     return {
       list
     }
   },
-  data() {
-    return {
-      markdown: ''
-    }
-  },
   methods: {
-    getMd() {
-      let id = this.list[0];
-      this.$axios.get(`/get-md/${id}`).then(res => {
-        console.log(res, '==res')
-        this.markdown = res.data;
-      })
-    },
-    getList() {
-    },
     handleDetail(item) {
-      this.$router.push(`./blogs/${item.id}`)
+      console.log(item)
+      this.$router.push(`/blogs/${item.id}`)
     }
-  },
-  mounted() {
-    this.getList();
   }
 }
 </script>

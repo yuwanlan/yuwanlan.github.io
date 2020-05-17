@@ -11,13 +11,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
     "cross-env": "^5.2.0",
-    "koa": "^2.6.2",
     "front-matter": "^3.2.0",
     "highlight.js": "^10.0.2",
+    "koa": "^2.6.2",
     "koa-router": "^8.0.8",
-    "markdown-it": "^10.0.0"
+    "markdown-it": "^10.0.0",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/axios": "^5.10.3",

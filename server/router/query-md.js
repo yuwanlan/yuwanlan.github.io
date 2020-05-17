@@ -3,6 +3,11 @@ let fs = require('fs');
 let fm = require('front-matter')
 let hljs = require('highlight.js');
 let MarkdownIt = require('markdown-it');
+
+let router = new Router({
+  prefix: '/get-md'
+});
+
 let md = new MarkdownIt({
   html:         false,        // 在源码中启用 HTML 标签
   xhtmlOut:     false,        // 使用 '/' 来闭合单标签 （比如 <br />）。
@@ -21,6 +26,7 @@ let md = new MarkdownIt({
   }
 });
 
+
 let allMdfiles = []
 
 let readDir = function(path, options = null) {
@@ -32,7 +38,6 @@ let readDir = function(path, options = null) {
   })
 }
 let readFile = function(path, options = null) {
-  // console.log(__dirname + '/' + path, '====readFile-path')
   return new Promise((res, rej) => {
     fs.readFile(__dirname + '/' + path, options, (err, data) => {
       if(err) rej(err);
@@ -40,10 +45,6 @@ let readFile = function(path, options = null) {
     })
   })
 }
-
-let router = new Router({
-  prefix: '/get-md'
-});
 
 router.get('/list', async (ctx, next) => {
   if(ctx.url !== '/get-md/list') next()
@@ -74,7 +75,10 @@ router.get('/:id', async (ctx, next) => {
   let markdownData;
   let path = `../../markdown/${ctx.params.id}.md`
   markdownData = await readFile(path, 'utf8')
-  ctx.body = markdownData;
+  ctx.body = {
+    attrs: fm(markdownData).attributes,
+    detail: md.render(markdownData)
+  };
 })
 
 module.exports = router

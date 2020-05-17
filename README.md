@@ -17,6 +17,12 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# markdown-it
+https://github.com/markdown-it/markdown-it
+api: https://markdown-it.github.io/markdown-it/#MarkdownIt.new
+
+# 
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
