@@ -32,6 +32,9 @@ export default {
     handleDetail(item) {
       this.$router.push(`/blogs/${item.id}`)
     }
+  },
+  mounted() {
+    // this.$axios.get('/get-md/list')
   }
 }
 </script>

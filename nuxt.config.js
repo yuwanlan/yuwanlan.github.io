@@ -19,7 +19,7 @@ module.exports = {
   // api:  https://www.nuxtjs.cn/api/configuration-generate
   generate: {
     routes() {
-      return axios.get('/get-md/list').then(res => {
+      return axios.get('http://localhost:3000/get-md/list').then(res => {
         let list = res.data
         return list.map(item => {
           return `/blogs/${item.id}`
