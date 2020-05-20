@@ -1,8 +1,10 @@
 <template>
-  <div class="container">
-    <template v-for="(item, index) in list">
-      <a :href="`/blogs/${item.id}`" :key="index">{{ item.title }}</a>
-    </template>
+  <div class="index">
+    <div class="container">
+      <template v-for="(item, index) in list">
+        <a :href="`/blogs/${item.id}`" :key="index">{{ item.title }}</a>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ export default {
   async asyncData(context) {
     let { $axios } = context;
     let result = await $axios.get('/get-md/list')
-    let list = ((result.data || {}).module || {}).list || []
+    let list = result.data
     return {
       list
     }
@@ -35,4 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.index {
+  
+}
 </style>
