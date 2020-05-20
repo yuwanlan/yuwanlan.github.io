@@ -47,6 +47,7 @@ let readFile = function(path, options = null) {
 }
 
 router.get('/list', async (ctx, next) => {
+  console.log('-----query-list-----------')
   if(ctx.url !== '/get-md/list') next()
   let dirPath = "../../markdown";
 
@@ -61,14 +62,11 @@ router.get('/list', async (ctx, next) => {
   allMdfiles = contentList.map(content => {
     return fm(content).attributes
   })
-
+  console.log(allMdfiles, '==body')
   ctx.body = {
-    "module": {
-      list: allMdfiles
-    },
-    "code": 200,
-    "message": "执行成功。"
-  };
+    list: allMdfiles,
+    code: 200
+  }
 })
 
 router.get('/:id', async (ctx, next) => {
