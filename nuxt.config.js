@@ -1,4 +1,5 @@
 
+const axios = require('axios')
 module.exports = {
   mode: 'universal',
   /*
@@ -14,6 +15,19 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  // api:  https://www.nuxtjs.cn/api/configuration-generate
+  generate: {
+    routes() {
+      return axios.get('/get-md/list').then(res => {
+        console.log(res, '==res')
+        let list = ((res.data || {}).module || {}).list || []
+        console.log(list, '==list')
+        return list.map(item => {
+          return `/blogs/${item.id}`
+        })
+      })
+    }
   },
   /*
   ** Customize the progress-bar color
