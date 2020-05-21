@@ -9,6 +9,7 @@ const app = new Koa()
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = app.env !== 'production'
+let _server;
 
 async function start () {
   // Instantiate nuxt.js
@@ -26,6 +27,9 @@ async function start () {
     await builder.build()
   }
 
+  _server = app.listen(port, host)
+
+  console.log(_server.close, '==_server--001')
   app.use(getMd.routes())
 
   app.use((ctx) => {
@@ -35,11 +39,13 @@ async function start () {
     nuxt.render(ctx.req, ctx.res)
   })
 
-  app.listen(port, host)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
+  exports.close = _server.close.bind(_server)
 }
 
 start()
+
+

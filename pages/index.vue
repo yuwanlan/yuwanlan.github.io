@@ -33,9 +33,9 @@ export default {
       this.$router.push(`/blogs/${item.id}`)
     }
   },
-  mounted() {
-    // this.$axios.get('/get-md/list')
-  }
+  // mounted() {
+  //   this.$axios.get('/get-md/exit')
+  // }
 }
 </script>
 
