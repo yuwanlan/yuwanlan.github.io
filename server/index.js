@@ -29,7 +29,6 @@ async function start () {
 
   _server = app.listen(port, host)
 
-  console.log(_server.close, '==_server--001')
   app.use(getMd.routes())
 
   app.use((ctx) => {
@@ -43,6 +42,11 @@ async function start () {
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
+  // exports._server = _server;
+  // _server.close(() => {
+  //   console.log('=_serverc.lose')
+  //   process.exit(1);
+  // })
   exports.close = _server.close.bind(_server)
 }
 

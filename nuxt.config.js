@@ -18,13 +18,12 @@ module.exports = {
   },
   // api:  https://www.nuxtjs.cn/api/configuration-generate
   generate: {
-    routes() {
-      return axios.get('http://localhost:3000/get-md/list').then(res => {
-        axios.get('http://localhost:3000/get-md/exit')
-        let list = res.data
-        return list.map(item => {
-          return `/blogs/${item.id}`
-        })
+    async routes() {
+      let result = await axios.get('http://localhost:3000/get-md/list')
+      // await axios.get('http://localhost:3000/get-md/exit')
+      let list = result.data
+      return list.map(item => {
+        return `/blogs/${item.id}`
       })
     }
   },
