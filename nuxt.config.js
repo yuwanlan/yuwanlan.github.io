@@ -20,7 +20,7 @@ module.exports = {
   generate: {
     routes() {
       return axios.get('http://localhost:3000/get-md/list').then(res => {
-        axios.get('/http://localhost:3000/get-md/exit')
+        axios.get('http://localhost:3000/get-md/exit')
         let list = res.data
         return list.map(item => {
           return `/blogs/${item.id}`
