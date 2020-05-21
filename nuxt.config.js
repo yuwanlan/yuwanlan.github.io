@@ -20,11 +20,18 @@ module.exports = {
   generate: {
     async routes() {
       let result = await axios.get('http://localhost:3000/get-md/list')
-      // await axios.get('http://localhost:3000/get-md/exit')
       let list = result.data
       return list.map(item => {
         return `/blogs/${item.id}`
       })
+    }
+  },
+  hooks: {
+    generate: {
+      async done() {
+        console.log('builder-done')
+        await axios.get('http://localhost:3000/get-md/exit')
+      }
     }
   },
   /*

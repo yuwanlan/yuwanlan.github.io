@@ -3,7 +3,6 @@ let fs = require('fs');
 let fm = require('front-matter')
 let hljs = require('highlight.js');
 let MarkdownIt = require('markdown-it');
-let main = require('../index')
 
 let router = new Router({
   prefix: '/get-md'
@@ -49,10 +48,7 @@ let readFile = function(path, options = null) {
 
 router.get('/exit', async (ctx, next) => {
   if(ctx.url !== '/get-md/exit') next()
-  await main.close(() => {
-    console.log('close-process')
-    process.exit(1);
-  });
+  await process.exit(1);
   ctx.body = '停止服务'
 })
 

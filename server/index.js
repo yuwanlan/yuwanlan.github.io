@@ -42,12 +42,7 @@ async function start () {
     message: `Server listening on http://${host}:${port}`,
     badge: true
   })
-  // exports._server = _server;
-  // _server.close(() => {
-  //   console.log('=_serverc.lose')
-  //   process.exit(1);
-  // })
-  exports.close = _server.close.bind(_server)
+  // 参考  http://nodejs.cn/api/net.html#net_server_close_callback
 }
 
 start()
