@@ -31,7 +31,7 @@ export default {
   methods: {
   },
   mounted() {
-    // this.$axios.get('/get-md/exit')
+    this.$axios.get('/get-md/exit')
   }
 }
 </script>

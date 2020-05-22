@@ -51,8 +51,8 @@ let readFile = function(path, options = null) {
 router.get('/exit', async (ctx, next) => {
   if(ctx.url !== '/get-md/exit') next()
   let { server } = main
-  server.close();
-  setImmediate(function(){server.emit('close')});
+  await server.close();
+  // setImmediate(function(){server.emit('close')});
   // await process.exit(1);
   ctx.body = '停止服务'
 })
