@@ -21,9 +21,11 @@ module.exports = {
     async routes() {
       let result = await axios.get('http://localhost:3000/get-md/list')
       let list = result.data
-      return list.map(item => {
+      let arr = list.map(item => {
         return `/blogs/${item.id}`
       })
+      console.log(arr, '==arr')
+      return arr
     }
   },
   hooks: {
