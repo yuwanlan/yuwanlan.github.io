@@ -2,8 +2,8 @@
   <div class="index">
     <div class="container">
       <template v-for="(item, index) in list">
-        <p :key="index" @click="handleDetail(item)">{{ item.title }}</p>
-        <!-- <a :href="`/blogs/${item.id}`" :key="index">{{ item.title }}</a> -->
+        <!-- <p :key="index" @click="handleDetail(item)">{{ item.title }}</p> -->
+        <a :href="`/blogs/${item.id}`" :key="index">{{ item.title }}</a>
       </template>
     </div>
   </div>
