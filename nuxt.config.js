@@ -31,10 +31,10 @@ module.exports = {
   },
   hooks: {
     generate: {
-      done() {
+      async done() {
         console.log('builder-done')
-        // axios.get('http://localhost:3000/get-md/exit')
-        axios.get('http://localhost:3000/get-md/exit')
+        // 要等到详情页请求接口打包完成，再关闭服务
+        await axios.get('http://localhost:3000/get-md/exit')
       }
     }
   },

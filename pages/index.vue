@@ -2,7 +2,6 @@
   <div class="index">
     <div class="container">
       <template v-for="(item, index) in list">
-        <!-- <p :key="index" @click="handleDetail(item)">{{ item.title }}</p> -->
         <a :href="`/blogs/${item.id}`" :key="index">{{ item.title }}</a>
       </template>
     </div>
@@ -30,9 +29,6 @@ export default {
     }
   },
   methods: {
-    handleDetail(item) {
-      this.$router.push(`/blogs/${item.id}`)
-    }
   },
   mounted() {
     // this.$axios.get('/get-md/exit')

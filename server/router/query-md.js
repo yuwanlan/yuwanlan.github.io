@@ -47,6 +47,7 @@ let readFile = function(path, options = null) {
   })
 }
 
+// 参考 https://stackoverflow.com/questions/14626636/how-do-i-shutdown-a-node-js-https-server-immediately
 router.get('/exit', async (ctx, next) => {
   if(ctx.url !== '/get-md/exit') next()
   let { server } = main
