@@ -18,6 +18,7 @@ module.exports = {
   },
   // api:  https://www.nuxtjs.cn/api/configuration-generate
   generate: {
+    subFolders: false,
     async routes() {
       let result = await axios.get('http://localhost:3000/get-md/list')
       let list = result.data
