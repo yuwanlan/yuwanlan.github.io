@@ -30,8 +30,8 @@ module.exports = {
     generate: {
       async done() {
         console.log('builder-done')
-        axios.get('http://localhost:3000/get-md/exit')
-        // await axios.get('http://localhost:3000/get-md/exit')
+        // axios.get('http://localhost:3000/get-md/exit')
+        await axios.get('http://localhost:3000/get-md/exit')
       }
     }
   },

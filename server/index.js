@@ -9,7 +9,6 @@ const app = new Koa()
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = app.env !== 'production'
-let _server;
 
 async function start () {
   // Instantiate nuxt.js
@@ -27,7 +26,7 @@ async function start () {
     await builder.build()
   }
 
-  _server = app.listen(port, host)
+  let server = app.listen(port, host)
 
   app.use(getMd.routes())
 
@@ -43,6 +42,7 @@ async function start () {
     badge: true
   })
   // 参考  http://nodejs.cn/api/net.html#net_server_close_callback
+  exports.server = server
 }
 
 start()
