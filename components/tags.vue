@@ -2,9 +2,11 @@
   <div class="tags">
     <h1 class="tags-title">标签</h1>
     <ul class="tags-box">
-      <li class="tag-item" v-for="(item, index) in tagList" :key="index" @click="handleGoTagContentList(item)">
-        <p class="tag">{{ item.tag }}</p>
-        <p class="tag-count">{{ item.contentList.length }}</p>
+      <li class="tag-item" v-for="(item, index) in tagList" :key="index">
+        <a :href="`/tags/${item.tag}`">
+          <p class="tag">{{ item.tag }}</p>
+          <p class="tag-count">{{ item.contentList.length }}</p>
+        </a>
       </li>
     </ul>
   </div>
@@ -38,7 +40,7 @@ export default {
   },
   methods: {
     handleGoTagContentList(item) {
-      this.$router.push(`/tags/${item.tag}`);
+      // this.$router.push(`/tags/${item.tag}`);
     }
   }
 }
