@@ -2,7 +2,7 @@
 layout: post
 title: 如何使用Nuxt建立个人博客
 description: 重构了一下博客，从Jekyll迁移到了Nuxt。方法是先用Node API 来解析 Markdown 文件，然后 Nuxt+Axios 获取 API 返回的文章内容并生成静态页面。
-tags: [涨知识,JavaScript,Nuxt,静态博客]
+tags: [javascript,nuxt]
 comments: true
 related_blog: [2018-03-28-set-up-static-blog]
 id: demo

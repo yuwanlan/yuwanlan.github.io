@@ -1,7 +1,7 @@
 ---
 title: Web Worker基础
 description: Web Worker基础知识了解
-tags: [Web Worker基础,JavaScript,Nuxt,静态博客]
+tags: [web-worker,javascript,nuxt]
 related_blog: null,
 time: 2020-5-25,
 id: webwork
