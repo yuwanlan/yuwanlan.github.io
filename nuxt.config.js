@@ -20,19 +20,26 @@ module.exports = {
   generate: {
     subFolders: false,
     async routes() {
-      let result = await axios.get('http://localhost:3000/get-md/list')
-      let list = result.data
+      let tagList = [];
+      let result = await axios.get('http://localhost:3000/get-md/list');
+      let list = result.data;
       let arr = list.map(item => {
+        item.tags.forEach(tag => {
+          if(!tagList.includes(tag)) tagList.push(tag)
+        })
         return `/blogs/${item.id}`
       })
-      console.log(arr, '==arr')
+      tagList.forEach(tag => {
+        arr.push(`/tags/${tag}`)
+      })
+      console.log(arr, 'all-router.........')
       return arr
     }
   },
   hooks: {
     generate: {
       async done() {
-        console.log('builder-done')
+        console.log('builder-done.......')
         // 要等到详情页请求接口打包完成，再关闭服务
         await axios.get('http://localhost:3000/get-md/exit')
       }
