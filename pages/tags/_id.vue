@@ -16,13 +16,37 @@
 import { mapState } from "vuex";
 export default {
   name: 'tag-list',
+  data() {
+    return {
+      currentTag: {}
+    }
+  },
   computed: {
     ...mapState('app', [
-      'currentTag'
-    ])
+      'blogList'
+    ]),
+  },
+  methods: {
+    getCurrentTag() {
+      let list = [];
+      let allTAgs = {};
+      this.blogList.forEach(item => {
+        item.tags.forEach(tag => {
+          if(!allTAgs[tag]) allTAgs[tag] = []
+          allTAgs[tag].push(item)
+        })
+      })
+      let tag = this.$route.params.id
+      console.log(tag, '===tag')
+      return {
+        tag,
+        contentList: allTAgs[tag]
+      }
+    }
   },
   mounted() {
-    console.log(this.currentTag, '==currentTag')
+    this.currentTag = this.getCurrentTag()
+    // console.log(this.currentTag, '==currentTag')
   }
 }
 </script>

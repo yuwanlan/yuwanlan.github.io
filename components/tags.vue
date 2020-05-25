@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     handleGoTagContentList(item) {
-      this.$store.commit('app/setCurrentTag', item);
       this.$router.push(`/tags/${item.tag}`);
     }
   }
