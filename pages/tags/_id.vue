@@ -16,37 +16,36 @@
 import { mapState } from "vuex";
 export default {
   name: 'tag-list',
+  async asyncData(context) {
+    let { $axios, route, store } = context;
+
+    let result = await $axios.get('/get-md/list')
+    let blogList = result.data
+
+    let allTAgs = {};
+    blogList.forEach(item => {
+      item.tags.forEach(tag => {
+        if(!allTAgs[tag]) allTAgs[tag] = []
+        allTAgs[tag].push(item)
+      })
+    })
+    let tag = route.params.id
+    return {
+      currentTag: {
+        tag,
+        contentList: allTAgs[tag]
+      }
+    }
+  },
   data() {
     return {
-      currentTag: {}
+      
     }
   },
   computed: {
     ...mapState('app', [
       'blogList'
     ]),
-  },
-  methods: {
-    getCurrentTag() {
-      let list = [];
-      let allTAgs = {};
-      this.blogList.forEach(item => {
-        item.tags.forEach(tag => {
-          if(!allTAgs[tag]) allTAgs[tag] = []
-          allTAgs[tag].push(item)
-        })
-      })
-      let tag = this.$route.params.id
-      console.log(tag, '===tag')
-      return {
-        tag,
-        contentList: allTAgs[tag]
-      }
-    }
-  },
-  mounted() {
-    this.currentTag = this.getCurrentTag()
-    // console.log(this.currentTag, '==currentTag')
   }
 }
 </script>

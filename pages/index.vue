@@ -33,9 +33,10 @@ export default {
     }
   },
   async asyncData(context) {
-    let { $axios } = context;
+    let { $axios, store } = context;
     let result = await $axios.get('/get-md/list')
     let list = result.data
+    store.commit('app/setBlogList', list)
     return {
       list
     }
@@ -44,10 +45,6 @@ export default {
     Tag
   },
   methods: {
-  },
-  mounted() {
-    this.$store.commit('app/setBlogList', this.list)
-    // this.$axios.get('/get-md/exit')
   }
 }
 </script>
