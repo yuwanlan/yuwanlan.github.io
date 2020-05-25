@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <!-- <Head /> -->
-    <nuxt />
+  <div class="default-layout">
+    <Head />
+    <div class="container">
+      <nuxt />
+    </div>
   </div>
 </template>
 
@@ -20,14 +22,11 @@ export default {
 }
 </script>
 
-<style>
-html {
- 
-}
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
+<style lang="scss" scoped>
+.default-layout {
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>

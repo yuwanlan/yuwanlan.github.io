@@ -13,7 +13,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   // api:  https://www.nuxtjs.cn/api/configuration-generate
@@ -46,9 +46,10 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    './assets/css/base.scss'
   ],
   styleResources: {
-    scss: './assets/css/base.scss'
+    // scss: './assets/css/base.scss'
   },
   /*
   ** Plugins to load before mounting the App

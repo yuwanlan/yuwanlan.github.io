@@ -1,13 +1,30 @@
+$default-color:rgba(0, 0, 0, 0.6);
+$default-color-gray: #aaa;
+
+* {
+  color: $default-color;
+}
 a {
-  color: #333;
+  color: $default-color;
   text-decoration: none;
 }
-
 h1,h2,h3,h4,h5,h6 {
   font-weight: normal;
+  color: $default-color;
 }
 
 .container {
   width: 1200px;
   margin: 0 auto;
 }
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+html {overflow-y: scroll;} 
+
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }

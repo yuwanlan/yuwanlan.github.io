@@ -1,14 +1,17 @@
 <template>
-  <div class="head">
+  <header>
     <div class="container">
-      
+      <h1>ONE PRICE</h1>
+      <div class="header-right">
+        <p>关于</p>
+      </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
 export default {
-  name: 'head',
+  name: 'Head',
   data() {
     return {
 
@@ -18,7 +21,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.head {
+header {
+  width: 100%;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  .container {
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      font-size: 22px;
+    }
+    .header-right {
 
+    }
+  }
 }
 </style>
