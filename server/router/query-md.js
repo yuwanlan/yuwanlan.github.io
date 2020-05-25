@@ -81,7 +81,7 @@ router.get('/:id', async (ctx, next) => {
   markdownData = await readFile(path, 'utf8')
   ctx.body = {
     attrs: fm(markdownData).attributes,
-    detail: md.render(markdownData)
+    detail: md.render(fm(markdownData).body)
   };
 })
 

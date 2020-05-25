@@ -1,9 +1,7 @@
 <template>
   <div class="default-layout">
     <Head />
-    <div class="container">
       <nuxt />
-    </div>
   </div>
 </template>
 
@@ -12,7 +10,7 @@ import Head from '../components/head'
 export default {
   name: 'default',
   components: {
-    Head
+    Head,
   },
   data() {
     return {
@@ -24,9 +22,5 @@ export default {
 
 <style lang="scss" scoped>
 .default-layout {
-  .container {
-    display: flex;
-    justify-content: space-between;
-  }
 }
 </style>
