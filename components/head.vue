@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <h1>ONE PRICE</h1>
+      <h1 @click="handleHome">ONE PRICE</h1>
       <div class="header-right">
         <p>关于</p>
       </div>
@@ -15,6 +15,11 @@ export default {
   data() {
     return {
 
+    }
+  },
+  methods: {
+    handleHome() {
+      this.$router.push('/')
     }
   }
 }
@@ -31,6 +36,7 @@ header {
     align-items: center;
     h1 {
       font-size: 22px;
+      cursor: pointer;
     }
     .header-right {
 

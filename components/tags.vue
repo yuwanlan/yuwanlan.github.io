@@ -3,7 +3,7 @@
     <h1 class="tags-title">标签</h1>
     <ul class="tags-box">
       <li class="tag-item" v-for="(item, index) in tagList" :key="index" @click="handleGoTagContentList(item)">
-        <a class="tag" href="#">{{ item.tag }}</a>
+        <p class="tag">{{ item.tag }}</p>
         <p class="tag-count">{{ item.contentList.length }}</p>
       </li>
     </ul>
@@ -60,6 +60,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     .tag-item {
+      cursor: pointer;
       letter-spacing: 0;
       line-height: 21px;
       padding: 0 10px 7px 0;
