@@ -28,10 +28,6 @@ export default {
       attrs,
       detail
     }
-  },
-  mounted() {
-    console.log(this.attrs, '=attrs')
-    console.log(this.detail, '=detail')
   }
 }
 </script>
