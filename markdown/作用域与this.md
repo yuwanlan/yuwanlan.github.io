@@ -1,10 +1,9 @@
 ---
-title: 标题1
-description: 描述1
-tags: [javascript,nuxt]
-comments: true
-related_blog: [2018-03-28-set-up-static-blog]
-id: 1
+title: 作用域与this
+description: JavaScript静态作用域与this
+tags: [javascript,this,静态作用域]
+time: 2020-5-20
+id: 作用域与this
 ---
 # 作用域 
 词法作用域 基于定义的位置,静态的\
@@ -63,10 +62,10 @@ this 是在运行的时候绑定的
 #### 显式绑定
 call apply bind
 #### new 绑定
-使用 new 来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。 \
-1. 创建（或者说构造）一个全新的对象。\
-2. 这个新对象会被执行 [[ 原型 ]] 连接。\
-3. 这个新对象会绑定到函数调用的 this。\
+使用 new 来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。
+1. 创建（或者说构造）一个全新的对象。
+2. 这个新对象会被执行 [[ 原型 ]] 连接。
+3. 这个新对象会绑定到函数调用的 this。
 4. 如果函数没有返回其他对象，那么 new表达式中的函数调用会自动返回这个新对象。
 5. 
 

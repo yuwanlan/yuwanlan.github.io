@@ -1,7 +1,7 @@
 ---
 title: Web Worker基础
-description: Web Worker基础知识了解
-tags: [web-worker,javascript,nuxt]
+description: Web Worker基础知识
+tags: [web worker, nuxt]
 related_blog: null,
 time: 2020-5-25,
 id: webwork
@@ -60,6 +60,5 @@ timeoutFun()
 ````
 ````javascript
 // 2.模块化 插件 - webworkify
-
-
+npm:  https://www.npmjs.com/package/webworkify
 ````
