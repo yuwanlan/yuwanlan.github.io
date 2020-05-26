@@ -3,7 +3,7 @@ title: 作用域与this
 description: JavaScript静态作用域与this
 tags: [javascript,this,静态作用域]
 time: 2020-5-20
-id: 作用域与this
+id: scope&this
 ---
 # 作用域 
 词法作用域 基于定义的位置,静态的\

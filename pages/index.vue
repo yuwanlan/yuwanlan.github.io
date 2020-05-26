@@ -14,7 +14,7 @@
           </div>
         </template>
       </div>
-      <Tag />
+      <Tag class="tag-component" />
     </div>
   </div>
 </template>
@@ -83,6 +83,18 @@ export default {
       }
       .blog-item + .blog-item {
         border-top: 1px solid #eee;
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    .container {
+      .content {
+        .blog-item {
+
+        }
+      }
+      .tag-component {
+        display: none;
       }
     }
   }
