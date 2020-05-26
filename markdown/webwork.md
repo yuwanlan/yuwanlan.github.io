@@ -2,8 +2,8 @@
 title: Web Worker基础
 description: Web Worker基础知识
 tags: [web worker, nuxt]
-related_blog: null,
-time: 2020-5-25,
+related_blog: null
+time: 2020-5-25
 id: webwork
 ---
 # Web Worker
