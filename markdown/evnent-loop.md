@@ -6,9 +6,10 @@ time: 2020-05-28
 id: evnent-loop
 ---
 # evennt-loop
-参考链接：
-https://juejin.im/post/59e85eebf265da430d571f89
-https://juejin.im/post/5a6155126fb9a01cb64edb45
+参考链接： \
+[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89) \
+[Event Loop的规范和实现](https://juejin.im/post/5a6155126fb9a01cb64edb45)
+
 ### 宏任务 - macro-task
 包括整体代码script(同步)、setTimeout(异步)、setInterval(异步)、setImmediate、I/O、UI交互事件
 ### 微任务 - micro-task
