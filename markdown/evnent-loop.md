@@ -2,7 +2,7 @@
 title: evnent-loop
 description: evnent-loop
 tags: [javascript, evennt-loop]
-time: 2020-05-28
+time: '2020-05-28'
 id: evnent-loop
 ---
 # evennt-loop
