@@ -26,6 +26,9 @@ api: https://markdown-it.github.io/markdown-it/#MarkdownIt.new
 
 # 样式参考
 https://d2fan.com/
+
+# blog
+https://yuwanlan.icu/
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
