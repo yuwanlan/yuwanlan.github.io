@@ -19,7 +19,8 @@ export default {
   },
   methods: {
     handleHome() {
-      this.$router.push('/')
+      window.location.href = '/'
+      // this.$router.push('/') 
     }
   }
 }
