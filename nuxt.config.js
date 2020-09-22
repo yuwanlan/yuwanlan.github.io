@@ -85,5 +85,9 @@ module.exports = {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  server: {
+    port: 3333,
+  },
+  telemetry:false
 }
